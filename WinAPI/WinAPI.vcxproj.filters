@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="API FrameWork">
+      <UniqueIdentifier>{4ce297d4-dceb-456e-ad89-8857825fe90f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\Stdafx">
+      <UniqueIdentifier>{1ddf1c51-d47b-496f-91f9-c5474c5fcc74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\Utility">
+      <UniqueIdentifier>{a05a144f-e9ca-4e65-825f-cf967f0d1b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\DesignPattern">
+      <UniqueIdentifier>{f4c53993-5407-45bd-a029-b764a0d2b664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\DesignPattern\Singleton">
+      <UniqueIdentifier>{673fe5a0-f839-42fe-a930-6bd2d13d7193}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame">
+      <UniqueIdentifier>{dbc0e035-362d-493d-8421-ec6bab66ed4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\GameNode">
+      <UniqueIdentifier>{cc613e17-ed7c-467c-9aa0-7a139bdc07f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\Manager">
+      <UniqueIdentifier>{81c1d898-4ea9-4cec-8d31-ab087375cc39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameClass">
+      <UniqueIdentifier>{4afa747c-b86f-46f9-a1bf-21e77a7b9951}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameClass\HomeWork">
+      <UniqueIdentifier>{5d7d3f76-a0db-4bd8-88b8-e849bbb7aeb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameClass\Class">
+      <UniqueIdentifier>{3d9bfc8d-032a-4442-a0fe-55888b163829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameClass\CostomClass">
+      <UniqueIdentifier>{6a15edb5-11d5-4ae9-b0b7-74493b7bc5a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameClass\HomeWork\BattleGame">
+      <UniqueIdentifier>{a1a1e63d-e27a-4ff8-9afb-10e470714fe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameClass\HomeWork\BattleGame\interface">
+      <UniqueIdentifier>{aaf5aca0-1b04-4898-9f6d-a867e3b6ab98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameClass\HomeWork\BattleGame\SkillClass">
+      <UniqueIdentifier>{bfffbe20-0a78-40e9-b95a-a809dbd742f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\TMF">
+      <UniqueIdentifier>{4c560383-eaf4-4bdd-abe5-c714ecc240e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\Image">
+      <UniqueIdentifier>{8ecdd767-053c-4108-8f75-9ed679a52eab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\ExampleClasses">
+      <UniqueIdentifier>{b4430109-f1bc-406f-ae8a-c2c92daec737}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\ExampleClasses\Scene">
+      <UniqueIdentifier>{3b6764da-c672-4991-a775-af78f99a0f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\Sound">
+      <UniqueIdentifier>{8557f922-f806-4efa-a4c3-6c068006ad66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="port">
+      <UniqueIdentifier>{704ed228-884a-4fce-8293-5bb9b4ec572c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>API FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Stdafx.cpp">
+      <Filter>API FrameWork\Stdafx</Filter>
+    </ClCompile>
+    <ClCompile Include="GameNode.cpp">
+      <Filter>API FrameWork\GameNode</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>API FrameWork\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClass_0103.cpp">
+      <Filter>GameClass\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeWork_0103_1.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="StickMan.cpp">
+      <Filter>GameClass\CostomClass</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeWork_0103_2.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="HPprogressBar.cpp">
+      <Filter>GameClass\CostomClass</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClass_0104.cpp">
+      <Filter>GameClass\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeWork_0104.cpp">
+      <Filter>GameClass\HomeWork\BattleGame</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleGamePlayer.cpp">
+      <Filter>GameClass\HomeWork\BattleGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Reflection.cpp">
+      <Filter>GameClass\HomeWork\BattleGame\SkillClass</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeWork_0107_1.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="rotateRect.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeWork_0107_2.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeWork_0107_3.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeWork_0111.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeWork_0107_4.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClass_0112.cpp">
+      <Filter>GameClass\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeWork_0112_1.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Homework_0113_1.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Homework_0114_frameImg.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClass0117.cpp">
+      <Filter>GameClass\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>API FrameWork\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageManager.cpp">
+      <Filter>API FrameWork\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Homework0118.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondScene.cpp">
+      <Filter>API FrameWork\ExampleClasses\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="StartScene.cpp">
+      <Filter>API FrameWork\ExampleClasses\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="FontManager.cpp">
+      <Filter>API FrameWork\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="TempSoundManager.cpp">
+      <Filter>API FrameWork\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="TempSoundTest.cpp">
+      <Filter>API FrameWork\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>GameClass\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeWork_0120.cpp">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIplusTest.cpp" />
+    <ClCompile Include="PortMain.cpp">
+      <Filter>port</Filter>
+    </ClCompile>
+    <ClCompile Include="CBlock.cpp" />
+    <ClCompile Include="CShapePlayer.cpp">
+      <Filter>port</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTranslate.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CommonMacroFunction.h">
+      <Filter>API FrameWork\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Stdafx.h">
+      <Filter>API FrameWork\Stdafx</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomFunction.h">
+      <Filter>API FrameWork\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="GameNode.h">
+      <Filter>API FrameWork\GameNode</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>API FrameWork\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonBase.h">
+      <Filter>API FrameWork\DesignPattern\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClass_0103.h">
+      <Filter>GameClass\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeWork_0103_1.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="StickMan.h">
+      <Filter>GameClass\CostomClass</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeWork_0103_2.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="HPprogressBar.h">
+      <Filter>GameClass\CostomClass</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClass_0104.h">
+      <Filter>GameClass\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeWork_0104.h">
+      <Filter>GameClass\HomeWork\BattleGame</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleGamePlayer.h">
+      <Filter>GameClass\HomeWork\BattleGame</Filter>
+    </ClInclude>
+    <ClInclude Include="iSkill.h">
+      <Filter>GameClass\HomeWork\BattleGame\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Reflection.h">
+      <Filter>GameClass\HomeWork\BattleGame\SkillClass</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeWork_0107_1.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="rotateRect.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_inter.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeWork_0107_2.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeWork_0107_3.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeWork_0111.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeWork_0107_4.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClass_0112.h">
+      <Filter>GameClass\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeWork_0112_1.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Homework_0113_1.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Homework_0114_frameImg.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClass0117.h">
+      <Filter>GameClass\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>API FrameWork\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageManager.h">
+      <Filter>API FrameWork\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Homework0118.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="StartScene.h">
+      <Filter>API FrameWork\ExampleClasses\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondScene.h">
+      <Filter>API FrameWork\ExampleClasses\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="FontManager.h">
+      <Filter>API FrameWork\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="TempSoundManager.h">
+      <Filter>API FrameWork\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="TempSoundTest.h">
+      <Filter>API FrameWork\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>GameClass\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeWork_0120.h">
+      <Filter>GameClass\HomeWork</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIplusTest.h" />
+    <ClInclude Include="PortMain.h">
+      <Filter>port</Filter>
+    </ClInclude>
+    <ClInclude Include="CBlock.h" />
+    <ClInclude Include="CShapePlayer.h">
+      <Filter>port</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTranslate.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\Documents\삼각함수.txt">
+      <Filter>API FrameWork\TMF</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
