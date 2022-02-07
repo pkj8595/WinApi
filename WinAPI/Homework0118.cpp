@@ -211,7 +211,7 @@ void Homework0118::render(HDC hdc)
 	this->getBackBuffer()->render(getHDC());
 }
 
-void Homework0118::macroPlayFrameAnimation(mycustom::Image * image, bool isleft, int & index)
+void Homework0118::macroPlayFrameAnimation(my::Image * image, bool isleft, int & index)
 {
 	if (!isleft)
 	{
@@ -237,7 +237,7 @@ void Homework0118::macroPlayFrameAnimation(mycustom::Image * image, bool isleft,
 	}
 }
 
-bool Homework0118::macroPlayOnceFrameAnimation(mycustom::Image * image, bool isleft, int & index, bool & isAnimating)
+bool Homework0118::macroPlayOnceFrameAnimation(my::Image * image, bool isleft, int & index, bool & isAnimating)
 {
 	if (isAnimating)
 	{

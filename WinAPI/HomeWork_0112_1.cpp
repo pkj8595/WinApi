@@ -5,19 +5,19 @@ HRESULT HomeWork_0112_1::init(void)
 {
 	MainGame::init();
 
-	_background = new mycustom::Image;
+	_background = new my::Image;
 	_background->init("Resource/Images/Background/background4.bmp", WINSIZE_X, WINSIZE_Y);
 
-	_appleSprite = new mycustom::Image;
+	_appleSprite = new my::Image;
 	_appleSprite->init("Resource/Images/Homework/apple.bmp", 32, 32, true, RGB(255, 0, 255));
 
-	_bulletSprite = new mycustom::Image;
+	_bulletSprite = new my::Image;
 	_bulletSprite->init("Resource/Images/Homework/bullet.bmp", 31, 29, true, RGB(255, 0, 255));
 
-	_cannonSprite = new mycustom::Image;
+	_cannonSprite = new my::Image;
 	_cannonSprite->init("Resource/Images/Homework/cannon.bmp", 39, 45, true, RGB(255, 0, 255));
 
-	_treeSprite = new mycustom::Image;
+	_treeSprite = new my::Image;
 	_treeSprite->init("Resource/Images/Homework/tree.bmp", 300, 490, true,RGB(255, 0, 255));
 	
 	_treeRect = RectMakeCenter(600, 550, 300, 490);

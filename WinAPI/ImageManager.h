@@ -1,6 +1,7 @@
 #pragma once
 #include "SingletonBase.h"
 #include "Image.h"
+#include "mGpImage.h"
 
 /*
 STL 맵의 핵심
@@ -18,37 +19,34 @@ STL 맵의 핵심
 - pair 자체를 확장시켜 사용하고 싶으면 <tuple>를 사용하자
 */
 
-//_CImage ;
-//class mycustom::mycustom::Image;
-//typeid(_CImage);
-//using mycustom::Image;
-//::은 전역으로 선언된 자료형이나 변수를 우선적으로 가져온다.
-
 class ImageManager : public SingletonBase<ImageManager>
 {
 	//typeid(_CImage);
 private:
 	//맵으로 만든 이미지 목록
-	typedef map<string, mycustom::Image*> mapImageList;
+	typedef map<string, my::Image*> mapImageList;
 	//맵으로 만든 이미지 목록의 반복자
-	typedef map<string, mycustom::Image*>::iterator mapImageIter;
+	typedef map<string, my::Image*>::iterator mapImageIter;
+
+	typedef map<string, mGpImage*> mapGPBitmapList;
+	typedef map<string, mGpImage*>::iterator mapGPBitmapIter;
 
 private:
 	mapImageList _mImageList;
-
+	mapGPBitmapList _mGpBitmapList;
 
 public:
 	HRESULT init(void);
 	void release(void);
 
 
-	mycustom::Image* addImage(string strKey, int width, int height);
-	mycustom::Image* addImage(string strKey, const char* fileName, int width, int height, BOOL isTrans = FALSE, COLORREF transColor = RGB(0, 0, 0));
-	mycustom::Image* addImage(string strKey, const char* fileName, float x, float y, int width, int height, BOOL isTrans = FALSE, COLORREF transColor = RGB(0, 0, 0));
-	mycustom::Image* addFrameImage(string strKey, const char* fileName, int width, int height, int maxFrameX, int maxFrameY, BOOL isTrans = FALSE, COLORREF transColor = RGB(0, 0, 0));		 
-	mycustom::Image* addFrameImage(string strKey, const char* fileName, float x, float y, int width, int height, int maxFrameX, int maxFrameY, BOOL isTrans = FALSE, COLORREF transColor = RGB(0, 0, 0));
+	my::Image* addImage(string strKey, int width, int height);
+	my::Image* addImage(string strKey, const char* fileName, int width, int height, BOOL isTrans = FALSE, COLORREF transColor = RGB(0, 0, 0));
+	my::Image* addImage(string strKey, const char* fileName, float x, float y, int width, int height, BOOL isTrans = FALSE, COLORREF transColor = RGB(0, 0, 0));
+	my::Image* addFrameImage(string strKey, const char* fileName, int width, int height, int maxFrameX, int maxFrameY, BOOL isTrans = FALSE, COLORREF transColor = RGB(0, 0, 0));		 
+	my::Image* addFrameImage(string strKey, const char* fileName, float x, float y, int width, int height, int maxFrameX, int maxFrameY, BOOL isTrans = FALSE, COLORREF transColor = RGB(0, 0, 0));
 
-	mycustom::Image* findImage(string strKey);
+	my::Image* findImage(string strKey);
 	bool deleteImage(string strKey);
 	bool deleteAll();
 
@@ -65,6 +63,15 @@ public:
 
 	void loopRender(string strKey, HDC hdc, const LPRECT drawArea, int offsetX, int offsetY);
 	void loopAlphaRender(string strKey, HDC hdc, const LPRECT drawArea, int offsetX, int offsetY, BYTE alpha);
+
+	//=====================
+	//# mgpbitmap #
+	//=====================
+	mGpImage* initForGPbitmap(string strKey,WCHAR *fileName, INT size =4,BOOL useEmbeddedColorManagement = PixelFormat16bppARGB1555);
+	void renderForGPbitmap(string strKey, Gdiplus::Graphics* g,INT size);
+	void renderForGPbitmap(string strKey, Gdiplus::Graphics* g, REAL x, REAL y, REAL w, REAL h);
+	mGpImage* findGPbitmap(string strKey);
+
 
 	ImageManager() {}
 	~ImageManager() {}

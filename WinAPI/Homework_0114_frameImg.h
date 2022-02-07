@@ -18,13 +18,13 @@ private:
 
 	PLAYER_STATE_0114 _state;
 
-	mycustom::Image* _background;
-	mycustom::Image* _playerIdle;
-	mycustom::Image* _playerMove;
-	mycustom::Image* _playerAttack;
-	mycustom::Image* _playerMAttack;
-	mycustom::Image* _playerCicleAttack;
-	mycustom::Image* _playerVictory;
+	my::Image* _background;
+	my::Image* _playerIdle;
+	my::Image* _playerMove;
+	my::Image* _playerAttack;
+	my::Image* _playerMAttack;
+	my::Image* _playerCicleAttack;
+	my::Image* _playerVictory;
 
 	RECT _rcPlayer;
 	bool _isLeft;
@@ -39,8 +39,8 @@ public:
 	virtual HRESULT init(void);
 	virtual void release(void);
 	virtual void update(void);
-	void PlayFrameAnimation(mycustom::Image * image,  bool isleft, int &index);
-	bool PlayOnceAnimation(mycustom::Image * image, bool isleft, int &index, bool &isAnimating);
+	void PlayFrameAnimation(my::Image * image,  bool isleft, int &index);
+	bool PlayOnceAnimation(my::Image * image, bool isleft, int &index, bool &isAnimating);
 
 
 	virtual void render(HDC hdc);

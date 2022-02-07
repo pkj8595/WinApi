@@ -25,12 +25,12 @@ private:
 		bool isEndPz;
 	};
 
-	mycustom::Image *_puzzleImg;
+	my::Image *_puzzleImg;
 	ST_SLICE _rcPuzzle[3][3];
 
 
-	mycustom::Image *_GameStartImg;
-	mycustom::Image *_CheetImg;
+	my::Image *_GameStartImg;
+	my::Image *_CheetImg;
 	RECT _rcGameStart;
 	RECT _rcCheet;
 

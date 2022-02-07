@@ -4,13 +4,13 @@
 HRESULT Homework_0113_1::init(void)
 {
 	MainGame::init();
-	_puzzleImg = new mycustom::Image;
+	_puzzleImg = new my::Image;
 	_puzzleImg->init("Resource/Images/Homework/slide.bmp", 149*3, 128*3, true, RGB(255, 0, 255));
 
-	_GameStartImg = new mycustom::Image;
+	_GameStartImg = new my::Image;
 	_GameStartImg->init("Resource/Images/Homework/StartButton.bmp", 48 * 3, 13 * 3, true, RGB(255, 0, 255));
 
-	_CheetImg = new mycustom::Image;
+	_CheetImg = new my::Image;
 	_CheetImg->init("Resource/Images/Homework/CheetButton.bmp", 45 * 3, 13 * 3, true, RGB(255, 0, 255));
 
 

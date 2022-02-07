@@ -149,11 +149,19 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="CBlock.cpp" />
-    <ClCompile Include="CPlayer.cpp" />
+    <ClCompile Include="CPlayer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Flame.cpp" />
+    <ClCompile Include="MapPatternController.cpp" />
+    <ClCompile Include="mGpImage.cpp" />
+    <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="SimpleTranslate.cpp" />
     <ClCompile Include="CShapePlayer.cpp" />
     <ClCompile Include="FontManager.cpp" />
-    <ClCompile Include="GameClass0117.cpp" />
+    <ClCompile Include="GameClass0117.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GameClass_0103.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -165,7 +173,9 @@
     </ClCompile>
     <ClCompile Include="GameNode.cpp" />
     <ClCompile Include="GDIplusTest.cpp" />
-    <ClCompile Include="Homework0118.cpp" />
+    <ClCompile Include="Homework0118.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="HomeWork_0103_1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -199,14 +209,17 @@
     <ClCompile Include="Homework_0114_frameImg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="HomeWork_0120.cpp" />
+    <ClCompile Include="HomeWork_0120.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="HPprogressBar.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageManager.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MainGame.cpp" />
-    <ClCompile Include="PortMain.cpp" />
-    <ClCompile Include="Reflection.cpp" />
+    <ClCompile Include="Reflection.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="rotateRect.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -218,6 +231,7 @@
     <ClCompile Include="StickMan.cpp" />
     <ClCompile Include="TempSoundManager.cpp" />
     <ClCompile Include="TempSoundTest.cpp" />
+    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="WinMain.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
@@ -228,11 +242,19 @@
     </ClInclude>
     <ClInclude Include="CBlock.h" />
     <ClInclude Include="CommonMacroFunction.h" />
-    <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="CPlayer.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Flame.h" />
+    <ClInclude Include="MapPatternController.h" />
+    <ClInclude Include="mGpImage.h" />
+    <ClInclude Include="Rocket.h" />
     <ClInclude Include="SimpleTranslate.h" />
     <ClInclude Include="CShapePlayer.h" />
     <ClInclude Include="FontManager.h" />
-    <ClInclude Include="GameClass0117.h" />
+    <ClInclude Include="GameClass0117.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="GameClass_0103.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
@@ -244,7 +266,9 @@
     </ClInclude>
     <ClInclude Include="GameNode.h" />
     <ClInclude Include="GDIplusTest.h" />
-    <ClInclude Include="Homework0118.h" />
+    <ClInclude Include="Homework0118.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="HomeWork_0103_1.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
@@ -278,16 +302,21 @@
     <ClInclude Include="Homework_0114_frameImg.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="HomeWork_0120.h" />
+    <ClInclude Include="HomeWork_0120.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="HPprogressBar.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageManager.h" />
-    <ClInclude Include="iSkill.h" />
+    <ClInclude Include="iSkill.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="MainGame.h" />
-    <ClInclude Include="PortMain.h" />
     <ClInclude Include="RandomFunction.h" />
-    <ClInclude Include="Reflection.h" />
+    <ClInclude Include="Reflection.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="rotateRect.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
@@ -303,9 +332,11 @@
     <ClInclude Include="StickMan.h" />
     <ClInclude Include="TempSoundManager.h" />
     <ClInclude Include="TempSoundTest.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\..\..\Documents\삼각함수.txt" />
+    <Text Include="Question.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

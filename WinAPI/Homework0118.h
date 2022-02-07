@@ -57,9 +57,9 @@ public:
 	Homework0118() {}
 	~Homework0118() {}
 
-	void macroPlayFrameAnimation(mycustom::Image * image, bool isleft, int & index);
+	void macroPlayFrameAnimation(my::Image * image, bool isleft, int & index);
 
-	bool macroPlayOnceFrameAnimation(mycustom::Image * image, bool isleft, int & index, bool & isAnimating);
+	bool macroPlayOnceFrameAnimation(my::Image * image, bool isleft, int & index, bool & isAnimating);
 
 };
 

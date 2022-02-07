@@ -1,32 +1,26 @@
 #pragma once
 #include "GameNode.h"
 #include "CShapePlayer.h"
-#include "CBlock.h"
-//using namespace Gdiplus;
-#define BLOCK_SIZE		10
+#include "MapPatternController.h"
+
+
 
 class GDIplusTest : public GameNode
 {
 private:
+	Gdiplus::Graphics* _g;
+	Gdiplus::Matrix _baseMatrix;
 	CShapePlayer _cplayer;
-	CBlock _block[BLOCK_SIZE];
+	MapPatternController _mapController;
 
-	Gdiplus::Rect _rc;
 	DWORD	_time;
 	DWORD	_timeStart;
-
-	Matrix	_m;
-	PointF	_posi;
-	PointF	_pt;
-	float	_angle;
-
-	RectF _topRc;
-	RectF _downRc;
-
-	float _count;
-	bool _gameStop;
+	DWORD	_pauseTime;
+	DWORD	_addTime;
+	bool	_gameStop;
 
 public:
+
 	virtual HRESULT init(void);
 	virtual void release(void);
 	virtual void update(void);

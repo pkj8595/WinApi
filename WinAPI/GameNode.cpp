@@ -60,7 +60,7 @@ void GameNode::update(void)
 	InvalidateRect(_hWnd, NULL, FALSE);		//이미지
 }
 
-void GameNode::render(HDC hdc)
+void GameNode::render(void)
 {
 }
 
@@ -80,7 +80,7 @@ LRESULT GameNode::MainProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lPara
 
 	case WM_PAINT:	//출력에 관한 모든것을 담당한다.(화면에 보이는 보든것)
 		hdc = BeginPaint(hWnd, &ps);
-		this->render(hdc);
+		this->render();
 		EndPaint(hWnd, &ps);
 		break;
 	case WM_MOUSEMOVE:

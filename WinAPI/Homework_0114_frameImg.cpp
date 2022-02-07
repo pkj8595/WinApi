@@ -6,25 +6,25 @@ HRESULT Homework_0114_frameImg::init(void)
 	MainGame::init();
 
 
-	_background = new mycustom::Image;
+	_background = new my::Image;
 	_background->init("Resource/Images/Background/backgroundVS.bmp", 1400, 600);
 
-	_playerIdle = new mycustom::Image;
+	_playerIdle = new my::Image;
 	_playerIdle->init("Resource/Images/Frame/idle.bmp", 0, 0, 3834, 852, 9, 2, true, RGB(255, 0, 255));
 
-	_playerMove = new mycustom::Image;
+	_playerMove = new my::Image;
 	_playerMove->init("Resource/Images/Frame/walking2_magenta.bmp", 0, 0, 4686, 852, 11, 2, true, RGB(255, 0, 255));
 
-	_playerAttack = new mycustom::Image;
+	_playerAttack = new my::Image;
 	_playerAttack->init("Resource/Images/Frame/stab.bmp", 0, 0, 7020, 814, 9, 2, true, RGB(255, 0, 255));
 
-	_playerMAttack = new mycustom::Image;
+	_playerMAttack = new my::Image;
 	_playerMAttack->init("Resource/Images/Frame/Mstabs.bmp", 0, 0, 9152, 800, 11, 2, true, RGB(255, 0, 255));
 
-	_playerCicleAttack = new mycustom::Image;
+	_playerCicleAttack = new my::Image;
 	_playerCicleAttack->init("Resource/Images/Frame/cicleMotionList.bmp", 0, 0, 5814, 1276, 9, 2, true, RGB(255, 0, 255));
 
-	_playerVictory = new mycustom::Image;
+	_playerVictory = new my::Image;
 	_playerVictory->init("Resource/Images/Frame/vMotionList.bmp", 0, 0, 14444, 886, 23, 2, true, RGB(255, 0, 255));
 
 
@@ -223,7 +223,7 @@ void Homework_0114_frameImg::render(HDC hdc)
 }
 
 
-void Homework_0114_frameImg::PlayFrameAnimation(mycustom::Image * image, bool isleft, int &index)
+void Homework_0114_frameImg::PlayFrameAnimation(my::Image * image, bool isleft, int &index)
 {
 	if (!isleft)
 	{
@@ -249,7 +249,7 @@ void Homework_0114_frameImg::PlayFrameAnimation(mycustom::Image * image, bool is
 	}
 }
 
-bool Homework_0114_frameImg::PlayOnceAnimation(mycustom::Image * image, bool isleft, int &index, bool &isAnimating)
+bool Homework_0114_frameImg::PlayOnceAnimation(my::Image * image, bool isleft, int &index, bool &isAnimating)
 {
 	if (isAnimating) 
 	{

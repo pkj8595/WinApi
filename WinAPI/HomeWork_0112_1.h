@@ -31,11 +31,11 @@ private:
 
 	RECT _treeRect;
 
-	mycustom::Image* _background;
-	mycustom::Image* _appleSprite;
-	mycustom::Image* _bulletSprite;
-	mycustom::Image* _cannonSprite;
-	mycustom::Image* _treeSprite;
+	my::Image* _background;
+	my::Image* _appleSprite;
+	my::Image* _bulletSprite;
+	my::Image* _cannonSprite;
+	my::Image* _treeSprite;
 
 public:
 	virtual HRESULT init(void);

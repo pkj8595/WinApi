@@ -5,7 +5,7 @@
 #pragma comment (lib, "msimg32.lib")
 
 
-namespace mycustom {
+namespace my {
 
 	//멤버 이니셜라이즈를 한이유 상속과 관계있음.
 	//상속을 받은 클래스의 생성자 호출이 발생이 됨과 동시에 초기화

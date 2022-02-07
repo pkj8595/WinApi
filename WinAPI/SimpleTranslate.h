@@ -11,7 +11,7 @@ private:
 
 public:
 	SimpleTranslate() : _matrix( 0,0,0,0,0,0 ), _posi(PointF{ 0,0 }), _angle(0){}
-	virtual ~SimpleTranslate() {}
+	virtual ~SimpleTranslate() {};
 	virtual void matrixUpdate();
 	//virtual void render(Gdiplus::Graphics &g) = 0;
 
@@ -23,7 +23,9 @@ public:
 					REAL dy);
 
 	void setAngle(float angle) { _angle = angle; }
+	void addAngle(float angle) { _angle += angle; }
 	void setPosition(PointF posi) { _posi = posi; }
+	void setPosition(REAL x, REAL y) { _posi.X = x; _posi.Y = y; }
 
 	Gdiplus::Matrix& getMatrix() { return _matrix; }
 	PointF getPosition() { return _posi; }

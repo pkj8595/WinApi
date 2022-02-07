@@ -1,15 +1,6 @@
 #include "Stdafx.h"
 #include "MainGame.h"
 
-//
-//#include "GameClass_0112.h"
-//#include "HomeWork_0112_1.h"
-//#include "Homework_0113_1.h"
-//#include "Homework_0114_frameImg.h"
-
-#include "GameClass0117.h"
-#include "Homework0118.h"
-
 /*
 	API : 운영체제가 응용프로그램 개발을 위해 제공하는 함수의 집합(어플리케이션 프로그래밍 인터페이스)
 	하드웨어 <-------------> 운영체제 (W,L) <--------------> 응용프로그램
@@ -75,11 +66,6 @@ int APIENTRY WinMain( HINSTANCE hInstance,
 						int       nCmdShow)
 {
 	_mg = new MainGame();
-	//_mg = new HomeWork_0112_1();
-	//_mg = new Homework_0113_1();
-	//_mg = new Homework_0114_frameImg();
-	//_mg = new GameClass0117();	
-	//_mg = new Homework0118();
 
 	_hInstance = hInstance;
 
@@ -181,7 +167,6 @@ int APIENTRY WinMain( HINSTANCE hInstance,
 
 #endif
 
-	
 	//1-4. 화면에 윈도우 창 보여주기
 	ShowWindow(_hWnd, nCmdShow);
 
@@ -239,10 +224,10 @@ int APIENTRY WinMain( HINSTANCE hInstance,
 		DispatchMessage		:윈도우 프로시저에서 전달된 메세지를 실제 윈도우로 전달(압도적 중요) 
 	*/
 
-	Gdiplus::GdiplusShutdown(m_gdiplusToken);
 	_mg->release();
 	//!윈도우 클래스 등록 해제
 	UnregisterClass(WINNAME, hInstance);
+	Gdiplus::GdiplusShutdown(m_gdiplusToken);
 
 	return message.wParam;
 }

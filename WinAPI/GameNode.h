@@ -1,7 +1,7 @@
 #pragma once
 
 //백버퍼 이미지를 정적으로
-static mycustom::Image* _backBuffer = IMAGEMANAGER->addImage("backBuffer", WINSIZE_X, WINSIZE_Y);
+static my::Image* _backBuffer = IMAGEMANAGER->addImage("backBuffer", WINSIZE_X, WINSIZE_Y);
 
 class GameNode
 {
@@ -21,10 +21,10 @@ public :
 	virtual HRESULT init(bool managerInit);
 	virtual void release(void);
 	virtual void update(void);
-	virtual void render(HDC hdc);
+	virtual void render(void);
 	
 	//백버퍼 이미지 얻기
-	mycustom::Image* getBackBuffer(void) { return _backBuffer; }
+	my::Image* getBackBuffer(void) { return _backBuffer; }
 	HDC getMemDC() { return _backBuffer->getMemDC(); }
 	HDC getHDC() { return _hdc; }
 

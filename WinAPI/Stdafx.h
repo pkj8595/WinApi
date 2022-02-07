@@ -93,7 +93,9 @@ using namespace std;
 #include "ImageManager.h"
 #include "FontManager.h"
 #include "TempSoundManager.h"
+#include "Utils.h"
 
+using namespace MY_UTIL;
 //===================================
 //# custom #
 //===================================
@@ -115,7 +117,7 @@ using namespace std;
 
 #define WINNAME			(LPSTR)(TEXT("WindowAPI"))
 
-//#define FULLSCREEN
+#define FULLSCREEN
 
 #ifdef FULLSCREEN
 
@@ -141,6 +143,13 @@ using namespace std;
 #define WINSTYLE WS_CAPTION | WS_SYSMENU
 
 #endif 
+
+//===================================
+//# 매크로 # (기능 및 효율)
+//===================================
+#define CENTER_X	WINSIZE_X/2
+#define CENTER_Y	WINSIZE_Y/2
+
 
 //===================================
 //# 매크로 함수 # (클래스에서 동적 할당된 부분 해제)

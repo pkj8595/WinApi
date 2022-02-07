@@ -24,7 +24,7 @@ inline RECT RectMake(int x, int y, int width, int height)
 //RECT 중심점에 만들기
 inline RECT RectMakeCenter(int x, int y, int width, int height)
 {
-	RECT rc = { x - width / 2 , y - height / 2,x + width / 2 , y + height / 2, };
+	RECT rc = { x - width / 2 , y - height / 2,x + width / 2 , y + height / 2 };
 	return rc;
 
 }
@@ -53,22 +53,6 @@ inline void EllipseMakeCenter(HDC hdc, int x, int y, int width, int height)
 }
 
 
-
-inline int ChangeAlpha(int& alpha, int size)
-{
-	if (alpha < 0)
-	{
-		return 0;
-	}
-	else if (alpha > 255)
-	{
-		return 255;
-	}
-	alpha += size;
-
-	return alpha;
-}
-
 inline bool RectCollider(RECT rcA, RECT rcB)
 {
 	if (rcA.left <= rcB.right  &&
@@ -94,3 +78,42 @@ inline bool RectCollider2(RECT rcA, RECT rcB)
 	return false;
 }
 
+inline int ChangeAlpha(int& alpha, int size)
+{
+	if (alpha < 0)
+	{
+		return 0;
+	}
+	else if (alpha > 255)
+	{
+		return 255;
+	}
+	alpha += size;
+
+	return alpha;
+}
+
+inline float mRangeNum(float startNum, float smallEnd, float bigEnd, float size,bool &isinc )
+{
+	if (startNum < smallEnd )
+	{
+		isinc = true;
+		startNum = smallEnd;
+	}
+	else if (startNum > bigEnd) 
+	{
+		isinc = false;
+		startNum = bigEnd;
+	}
+
+	startNum += isinc?  size : -size;
+	
+	return startNum;
+}
+
+inline RectF GPRectFMakeCenter(REAL width, REAL height)
+{
+	RectF rc = {-width / 2 ,-height / 2, width, height };
+	return rc;
+
+}
