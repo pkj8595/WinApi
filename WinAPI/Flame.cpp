@@ -9,12 +9,14 @@ Flame::~Flame()
 {
 }
 
-HRESULT Flame::init(void)
+HRESULT Flame::init(const char* fileName, float* x, float* y)
 {
-	IMAGEMANAGER->addFrameImage("불꽃","Resource/Images/Rocket/Flame.BMP",437,297,9,1,true,RGB(255,0,255));
-	_frameX = 0;
-	_time = 0;
-	_rc = RectMake(0,0,0,0);
+	//어디서 어떻게 그릴지 추상화하는게 맞음.
+	_image = IMAGEMANAGER->addFrameImage("불꽃","Resource/Images/Rocket/Flame.BMP",437,297,9,1,true,RGB(255,0,255));
+	_x = x;
+	_y = y;
+	_rc = RectMakeCenter((int)_x, (int)_y, _image->getFrameWidth(), _image->getMaxFrameY());
+	_flameTick = 7.0f;
 
 	return S_OK;
 }
@@ -25,16 +27,26 @@ void Flame::release(void)
 
 void Flame::update(void)
 {
-	_time++;
-	if (_time % 5 ==0) 
+
+	if (FLAME_COUNT + _flameTick <= GetTickCount())
 	{
-		_frameX++;
-		if (_frameX == 9)_frameX = 0;
+		_flameTick = GetTickCount();
+		_image->setFrameX(_image->getFrameX() + 1);
+
+		if (_image->getFrameX() >= _image->getMaxFrameX())
+		{
+			_image->setFrameX(0);
+		}
+		_rc = RectMakeCenter(*_x-2, *_y + 180,
+			_image->getFrameWidth(),
+			_image->getFrameHeight());
 	}
+
+
 }
 
 void Flame::render(void)
 {
-	IMAGEMANAGER->frameRender("불꽃",getMemDC(), _rc.left,_rc.top, _frameX,1);
+	_image->frameRender(getMemDC(), _rc.left,_rc.top, _image->getFrameX(), _image->getFrameY());
 }
 

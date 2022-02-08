@@ -70,6 +70,15 @@
     <Filter Include="GameClass\port">
       <UniqueIdentifier>{704ed228-884a-4fce-8293-5bb9b4ec572c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API FrameWork\ExampleClasses\ShootingGame\Enemy">
+      <UniqueIdentifier>{c4de4360-dec2-49a3-ad9c-a5383c648ba1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\ExampleClasses\ShootingGame\Bullets">
+      <UniqueIdentifier>{fc024b1e-7ddf-4f4f-bbf5-896c4a065d9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameClass\HomeworkClass">
+      <UniqueIdentifier>{c2cd7251-33f9-4ea7-80b6-264052853fdf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -203,6 +212,24 @@
     </ClCompile>
     <ClCompile Include="Utils.cpp">
       <Filter>API FrameWork\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Minion.cpp">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullets.cpp">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Bullets</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilemap.cpp">
+      <Filter>GameClass\HomeworkClass</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMapObject.cpp">
+      <Filter>GameClass\HomeworkClass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -349,6 +376,24 @@
     </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>API FrameWork\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Minion.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullets.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Bullets</Filter>
+    </ClInclude>
+    <ClInclude Include="Tilemap.h">
+      <Filter>GameClass\HomeworkClass</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMapObject.h">
+      <Filter>GameClass\HomeworkClass</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,21 +1,20 @@
 #pragma once
 #include "GameNode.h"
 
-/*
-실습 겸 과제1. 로켁에 flame 이미지 추가
-- flame 이미지는 프레임렌더 
-- flame 클래스에는 로켓에 대한 정보가 있으면 안되며 maingame또한 flame을 알 필요없다.
-*/
+
+#define FLAME_COUNT 4.0f
 
 class Flame : public GameNode
 {
 private:
 	RECT _rc;
-	int _frameX;
-	int _time;
+	float* _x;
+	float* _y;
+	float _flameTick;
+	my::Image* _image;
 
 public:
-	HRESULT init(void);
+	HRESULT init(const char* fileName, float* x,float*y);
 	void release(void);
 	void update(void);
 	void render(void);

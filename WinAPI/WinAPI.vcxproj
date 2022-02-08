@@ -148,13 +148,17 @@
     <ClCompile Include="BattleGamePlayer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Bullets.cpp" />
     <ClCompile Include="CBlock.cpp" />
     <ClCompile Include="CPlayer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="Flame.cpp" />
     <ClCompile Include="MapPatternController.cpp" />
     <ClCompile Include="mGpImage.cpp" />
+    <ClCompile Include="Minion.cpp" />
     <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="SimpleTranslate.cpp" />
     <ClCompile Include="CShapePlayer.cpp" />
@@ -231,6 +235,8 @@
     <ClCompile Include="StickMan.cpp" />
     <ClCompile Include="TempSoundManager.cpp" />
     <ClCompile Include="TempSoundTest.cpp" />
+    <ClCompile Include="Tilemap.cpp" />
+    <ClCompile Include="TileMapObject.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="WinMain.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -240,14 +246,18 @@
     <ClInclude Include="BattleGamePlayer.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Bullets.h" />
     <ClInclude Include="CBlock.h" />
     <ClInclude Include="CommonMacroFunction.h" />
     <ClInclude Include="CPlayer.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="Flame.h" />
     <ClInclude Include="MapPatternController.h" />
     <ClInclude Include="mGpImage.h" />
+    <ClInclude Include="Minion.h" />
     <ClInclude Include="Rocket.h" />
     <ClInclude Include="SimpleTranslate.h" />
     <ClInclude Include="CShapePlayer.h" />
@@ -332,6 +342,8 @@
     <ClInclude Include="StickMan.h" />
     <ClInclude Include="TempSoundManager.h" />
     <ClInclude Include="TempSoundTest.h" />
+    <ClInclude Include="Tilemap.h" />
+    <ClInclude Include="TileMapObject.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,14 +1,20 @@
 #pragma once
 #include "GameNode.h"
 #include "Rocket.h"
-#define _USE_MATH_DEFINES // 메스 위에 잡아야함
+#include "Tilemap.h"
+#include "EnemyManager.h"
+
+#define _USE_MATH_DEFINES
 #include "math.h"
 
+#define TILE_MAP_SIZE		25
 
 class MainGame : public GameNode
 {
 private:
 	Rocket* _rocket;
+	EnemyManager* _em;
+	//Tilemap* _tileMap;
 
 public:
 	virtual HRESULT init(void);
