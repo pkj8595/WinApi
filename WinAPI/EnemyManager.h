@@ -2,6 +2,7 @@
 #include "GameNode.h"
 #include "Enemy.h"
 
+
 class EnemyManager: public GameNode
 {
 private:
@@ -21,6 +22,11 @@ public:
 	void render(void);
 
 	void setMinion(void);
+	void removeMinion(int arrNum);
+	vector<Enemy*> getMinions(void) { return _vMinion; }
+	void checkActive(void);
+
+
 
 	EnemyManager();
 	~EnemyManager();

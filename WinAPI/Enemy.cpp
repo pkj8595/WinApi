@@ -19,16 +19,22 @@ HRESULT Enemy::init(void)
 
 HRESULT Enemy::init(const char* imageName, POINT position)
 {
-	_worldTimeCount = GetTickCount();
-	_rndTimeCount = RND->getFromFloatTo(50, 150);
+	_worldTimeCount = TIMEMANAGER->getWorldTime();
+	_rndTimeCount = RND->getFromFloatTo(0.04f, 0.1f);
 	_image = IMAGEMANAGER->findImage(imageName);
 	_rc = RectMakeCenter(position.x, position.y, _image->getFrameWidth(), _image->getFrameHeight());
+
+	//Observer code
+	_type = ObservedType::MINION;
+	_isActive = true;
+	RECTOBSERVERMANAGER->registerObserved(this);
 
 	return S_OK;
 }
 
 void Enemy::release(void)
 {
+	RECTOBSERVERMANAGER->removeObserved(this);
 }
 
 void Enemy::update(void)
@@ -56,16 +62,21 @@ void Enemy::draw(void)
 
 void Enemy::animation(void)
 {
-	if (_rndTimeCount + _worldTimeCount <= GetTickCount()) 
+	if (_rndTimeCount + _worldTimeCount <= TIMEMANAGER->getWorldTime())
 	{
-		_worldTimeCount = GetTickCount();
+		_worldTimeCount = TIMEMANAGER->getWorldTime();
 		_currentFrameX++;
-		if (_image->getMaxFrameX() < _currentFrameX) 
+		if (_image->getMaxFrameX() < _currentFrameX)
 		{
 			_currentFrameX = 0;
 		}
 	}
-
 }
 
 
+STObservedData Enemy::getRectUpdate(){
+	return STObservedData();
+}
+
+void Enemy::collideObject(){
+}

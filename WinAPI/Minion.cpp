@@ -12,9 +12,15 @@ Minion::~Minion(){
 HRESULT Minion::init(const char* imageName, POINT position)
 {
 	Enemy::init(imageName, position);
+
+	_hp = 10;
+	_hpBar = new HpImgBar;
+	_hpBar->init(&_x, &_y, &_hp, 0, -30);
+
 	_pattern = static_cast<MI_PATTERN>( RND->getInt(3));
 	_point = position;
 	_angle = 0;
+
 	switch (_pattern)
 	{
 	case Minion::PATTERN_1:
@@ -37,6 +43,24 @@ HRESULT Minion::init(const char* imageName, POINT position)
 	return S_OK;
 }
 
+void Minion::release(void)
+{
+	Enemy::release();
+	_hpBar->release();
+}
+
+void Minion::update(void)
+{
+	Enemy::update();
+	_hpBar->update();
+}
+
+void Minion::render(void)
+{
+	Enemy::render();
+	_hpBar->render(getMemDC());
+}
+
 void Minion::move(void)
 {
 	switch (_pattern)
@@ -53,8 +77,6 @@ void Minion::move(void)
 	default:
 		break;
 	}
-	
-
 }
 
 void Minion::pattern1(void)
@@ -79,4 +101,21 @@ void Minion::pattern3(void)
 	_x = cosf(_angle) * _speed + _point.x;
 	_y = -sinf(_angle) * _speed + _point.y;
 	_rc = RectMakeCenter(_x, _y, _image->getFrameWidth(), _image->getFrameHeight());
+}
+
+
+STObservedData Minion::getRectUpdate()
+{
+	STObservedData temp;
+	temp.rc = &_rc;
+	temp.typeKey = &_type;
+	temp.isActive = &_isActive;
+	return temp;
+}
+
+
+void Minion::collideObject()
+{
+	_hp-=1;
+	if (_hp < 0) _isActive = false;
 }

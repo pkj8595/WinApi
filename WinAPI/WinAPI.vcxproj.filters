@@ -79,6 +79,21 @@
     <Filter Include="GameClass\HomeworkClass">
       <UniqueIdentifier>{c2cd7251-33f9-4ea7-80b6-264052853fdf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API FrameWork\Manager\TimeManager">
+      <UniqueIdentifier>{1307e192-e6f6-4d8d-98a7-509b0dfe1d28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\Utility\ToolClass">
+      <UniqueIdentifier>{d65f76cb-0ed2-40d4-89ac-de7f519c499a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\ExampleClasses\ShootingGame\Observer">
+      <UniqueIdentifier>{9db6fb26-f3e7-48b7-89f7-6145c88250c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\ExampleClasses\ShootingGame\Rocket">
+      <UniqueIdentifier>{41da0ea2-9d2d-480a-b594-27c5d959d77f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API FrameWork\Animation">
+      <UniqueIdentifier>{0bc4185d-54c2-4c9e-914d-b1e332e4f589}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -204,12 +219,6 @@
     <ClCompile Include="MapPatternController.cpp">
       <Filter>GameClass\port</Filter>
     </ClCompile>
-    <ClCompile Include="Rocket.cpp">
-      <Filter>API FrameWork\ExampleClasses\ShootingGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Flame.cpp">
-      <Filter>API FrameWork\ExampleClasses\ShootingGame</Filter>
-    </ClCompile>
     <ClCompile Include="Utils.cpp">
       <Filter>API FrameWork\Utility</Filter>
     </ClCompile>
@@ -230,6 +239,38 @@
     </ClCompile>
     <ClCompile Include="TileMapObject.cpp">
       <Filter>GameClass\HomeworkClass</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>API FrameWork\Manager\TimeManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>API FrameWork\Manager\TimeManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="HpImgBar.cpp">
+      <Filter>API FrameWork\Utility\ToolClass</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
+      <Filter>API FrameWork\Utility\ToolClass</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectManager.cpp" />
+    <ClCompile Include="CRectObserverManager.cpp">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="Flame.cpp">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Rocket</Filter>
+    </ClCompile>
+    <ClCompile Include="Rocket.cpp">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Rocket</Filter>
+    </ClCompile>
+    <ClCompile Include="CEffect.cpp" />
+    <ClCompile Include="Animation.cpp">
+      <Filter>API FrameWork\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="AniTestScene.cpp">
+      <Filter>API FrameWork\ExampleClasses\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -368,12 +409,6 @@
     <ClInclude Include="MapPatternController.h">
       <Filter>GameClass\port</Filter>
     </ClInclude>
-    <ClInclude Include="Rocket.h">
-      <Filter>API FrameWork\ExampleClasses\ShootingGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Flame.h">
-      <Filter>API FrameWork\ExampleClasses\ShootingGame</Filter>
-    </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>API FrameWork\Utility</Filter>
     </ClInclude>
@@ -394,6 +429,41 @@
     </ClInclude>
     <ClInclude Include="TileMapObject.h">
       <Filter>GameClass\HomeworkClass</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>API FrameWork\Manager\TimeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>API FrameWork\Manager\TimeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="HpImgBar.h">
+      <Filter>API FrameWork\Utility\ToolClass</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressBar.h">
+      <Filter>API FrameWork\Utility\ToolClass</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectManager.h" />
+    <ClInclude Include="CRectObserverManager.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="IRectObserved.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="ISubject.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Flame.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Rocket</Filter>
+    </ClInclude>
+    <ClInclude Include="Rocket.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame\Rocket</Filter>
+    </ClInclude>
+    <ClInclude Include="CEffect.h" />
+    <ClInclude Include="Animation.h">
+      <Filter>API FrameWork\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AniTestScene.h">
+      <Filter>API FrameWork\ExampleClasses\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

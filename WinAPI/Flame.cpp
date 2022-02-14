@@ -1,12 +1,10 @@
 #include "Stdafx.h"
 #include "Flame.h"
 
-Flame::Flame()
-{
+Flame::Flame(){
 }
 
-Flame::~Flame()
-{
+Flame::~Flame(){
 }
 
 HRESULT Flame::init(const char* fileName, float* x, float* y)
@@ -41,7 +39,6 @@ void Flame::update(void)
 			_image->getFrameWidth(),
 			_image->getFrameHeight());
 	}
-
 
 }
 

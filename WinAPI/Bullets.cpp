@@ -52,7 +52,6 @@ void Missile::fire(float x, float y)
 		_viBullet->x = _viBullet->fireX = x;
 		_viBullet->y = _viBullet->fireY = y;
 		_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y, _viBullet->img->getFrameWidth(), _viBullet->img->getFrameHeight());
-		//_viBullet->flameTick = 7.0f;
 		break;
 	}
 
@@ -120,6 +119,8 @@ void Missile::move(void)
 }
 
 
+
+
 //=============================================
 // ### MissileM1 ###
 //=============================================
@@ -153,23 +154,19 @@ void MissileM1::render(void)
 
 void MissileM1::fire(float x, float y)
 {
-	//최대 발사 갯수를 막는다.
 	if (_bulletMax <= _vBullet.size())return;
 
-	//메모리 블록 크기 만큼 
 	tagBullet bullet;
 	ZeroMemory(&bullet, sizeof(tagBullet));
 
 	bullet.img = new my::Image;
 	bullet.img->init("Resource/Images/Rocket/Missile.BMP", 0.0f, 0.0f, 416, 64, 13, 1, true, RGB(255, 0, 255));
 	bullet.speed = 4.0f;
-	//bullet.flameTick = 7.0f;
 	bullet.x = bullet.fireX = x;
 	bullet.y = bullet.fireY = y;
 	bullet.rc = RectMakeCenter(bullet.x, bullet.y, bullet.img->getFrameWidth(), bullet.img->getFrameHeight());
 
 	_vBullet.push_back(bullet);
-
 }
 
 void MissileM1::draw(void)
@@ -208,7 +205,6 @@ void MissileM1::move(void)
 		_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y,
 			_viBullet->img->getFrameWidth(), _viBullet->img->getFrameHeight());
 
-		//사거리 밖으로 나갔음
 		if (_range < getDistance(_viBullet->fireX, _viBullet->fireY, _viBullet->x, _viBullet->y+100))
 		{
 			SAFE_DELETE(_viBullet->img);
@@ -249,60 +245,61 @@ void MissileM1::move(void)
 	*/
 }
 
+void MissileM1::removeBullet(int arrNum)
+{
+	SAFE_DELETE(_vBullet[arrNum].img);
+	_vBullet.erase(_vBullet.begin() + arrNum);
+}
 
-//=============================================
-// ### AMissile ###
-//=============================================
 
-HRESULT AMissile::init(int bulletMax, float range)
+//==================================
+// ### Beam ###
+//==================================
+HRESULT Beam::init(int bulletMax, float range)
 {
 	_range = range;
 	_bulletMax = bulletMax;
-
 	return S_OK;
 }
 
-void AMissile::release(void)
+void Beam::release(void)
 {
 	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end(); ++_viBullet)
 	{
 		SAFE_DELETE(_viBullet->img);
 	}
+
 	_vBullet.clear();
 }
 
-void AMissile::update(void)
+void Beam::update(void)
 {
 	move();
-	isRange();
 }
 
-void AMissile::render(void)
+void Beam::render(void)
 {
 	draw();
 }
 
-void AMissile::fire(float x, float y)
+void Beam::fire(float x, float y)
 {
-	//최대 발사 갯수를 막는다.
 	if (_bulletMax <= _vBullet.size())return;
 
-	//메모리 블록 크기 만큼 
 	tagBullet bullet;
 	ZeroMemory(&bullet, sizeof(tagBullet));
+
 	bullet.img = new my::Image;
-	bullet.img->init("Resource/Images/Rocket/Missile.BMP", 0.0f, 0.0f, 416, 64, 13, 1, true, RGB(255, 0, 255));
-	//bullet.img = IMAGEMANAGER->findImage("미사일");
-	bullet.speed = 4.0f;
-	//bullet.flameTick = 7.0f;
+	bullet.img->init("Resource/Images/Rocket/Beam.bmp", 0.0f, 0.0f, 412, 801, 4, 1, true, RGB(255, 0, 255));
+	bullet.speed = 0.1f;
 	bullet.x = bullet.fireX = x;
 	bullet.y = bullet.fireY = y;
 	bullet.rc = RectMakeCenter(bullet.x, bullet.y, bullet.img->getFrameWidth(), bullet.img->getFrameHeight());
-
 	_vBullet.push_back(bullet);
+
 }
 
-void AMissile::draw(void)
+void Beam::draw(void)
 {
 	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end(); ++_viBullet)
 	{
@@ -321,9 +318,86 @@ void AMissile::draw(void)
 	}
 }
 
+void Beam::move(void)
+{
+	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end();)
+	{
+		_viBullet->y -= _viBullet->speed;
+		_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y,
+			_viBullet->img->getFrameWidth(), _viBullet->img->getFrameHeight());
+
+		cout << getDistance(_viBullet->fireX, _viBullet->fireY, _viBullet->x, _viBullet->y) << endl;
+
+		if (_range < getDistance(_viBullet->fireX, _viBullet->fireY, _viBullet->x, _viBullet->y))
+		{
+			SAFE_DELETE(_viBullet->img);
+			_viBullet = _vBullet.erase(_viBullet);
+		}
+		else ++_viBullet;
+	}
+}
+
+
+//=============================================
+// ### AMissile ###
+//=============================================
+
+HRESULT AMissile::init(int bulletMax, float range)
+{
+	_range = range;
+	_bulletMax = bulletMax;
+
+	return S_OK;
+}
+
+void AMissile::release(void)
+{
+	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end(); ++_viBullet)
+	{
+		SAFE_DELETE((*_viBullet)->img);
+	}
+	_vBullet.clear();
+}
+
+void AMissile::update(void)
+{
+	move();
+	isRange();
+	CheckFire();
+}
+
+void AMissile::render(void)
+{
+	draw();
+}
+
+void AMissile::fire(float x, float y)
+{
+	
+}
+
+void AMissile::draw(void)
+{
+	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end(); ++_viBullet)
+	{
+		(*_viBullet)->img->frameRender(getMemDC(), (*_viBullet)->rc.left, (*_viBullet)->rc.top);
+
+		(*_viBullet)->count++;
+		if ((*_viBullet)->count % 3 == 0)
+		{
+			(*_viBullet)->img->setFrameX((*_viBullet)->img->getFrameX() + 1);
+			if ((*_viBullet)->img->getFrameX() >= (*_viBullet)->img->getMaxFrameX())
+			{
+				(*_viBullet)->img->setFrameX(0);
+			}
+			(*_viBullet)->count = 0;
+		}
+	}
+}
+
 void AMissile::move(void)
 {
-	//for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end();)
+	//for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end();++_viBullet)
 	//{
 	//	_viBullet->y -= _viBullet->speed;
 	//	_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y,
@@ -336,14 +410,30 @@ void AMissile::isRange()
 	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end();) 
 	{
 		//사거리 밖으로 나갔음
-		if (_range < getDistance(_viBullet->fireX, _viBullet->fireY, _viBullet->x, _viBullet->y + 100))
+		if (_range < getDistance((*_viBullet)->fireX, (*_viBullet)->fireY, (*_viBullet)->x, (*_viBullet)->y + 100))
 		{
-			SAFE_DELETE(_viBullet->img);
+			SAFE_DELETE((*_viBullet)->img);
+			(*_viBullet)->fire = false;
+			(*_viBullet)->release();
 			_viBullet = _vBullet.erase(_viBullet);
 		}
 		else ++_viBullet;
 	}
 	
+}
+
+void AMissile::CheckFire()
+{
+	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end();++_viBullet)
+	{
+		if (!(*_viBullet)->fire) 
+		{
+			SAFE_DELETE((*_viBullet)->img);
+			(*_viBullet)->release();
+			_viBullet = _vBullet.erase(_viBullet);
+			break;
+		}
+	}
 }
 
 //==================================
@@ -362,38 +452,100 @@ void CaseShotMissile::move(void)
 {
 	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end(); ++_viBullet)
 	{
-		//cout << "_viBullet->x : "<< _viBullet->x << endl;
-		//cout << "_viBullet->y : "<< _viBullet->y << endl;
-		_viBullet->x += cosf(_viBullet->angle)*_viBullet->speed;
-		_viBullet->y += -sinf(_viBullet->angle)*_viBullet->speed;
-		_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y,
-			_viBullet->img->getFrameWidth(), _viBullet->img->getFrameHeight());
+		(*_viBullet)->x += cosf((*_viBullet)->angle)*(*_viBullet)->speed;
+		(*_viBullet)->y += -sinf((*_viBullet)->angle)*(*_viBullet)->speed;
+		(*_viBullet)->rc = RectMakeCenter((*_viBullet)->x, (*_viBullet)->y,
+			(*_viBullet)->img->getFrameWidth(), (*_viBullet)->img->getFrameHeight());
 	}
 }
 
 void CaseShotMissile::fire(float x, float y)
 {
-
 	if (_bulletMax <= _vBullet.size())return;
-	//cout << "CaseShotMissile::fire" << endl;
 
 	for (int i = 0; i < _bulletMax; i++)
 	{
-		tagBullet bullet;
-		ZeroMemory(&bullet, sizeof(tagBullet));
-		bullet.img = new my::Image;
-		bullet.img->init("Resource/Images/Rocket/Missile.BMP", 0.0f, 0.0f, 416, 64, 13, 1, true, RGB(255, 0, 255));
-		//bullet.img = IMAGEMANAGER->findImage("미사일");
-		bullet.speed = 4.0f;
-		bullet.x = bullet.fireX = x;
-		bullet.y = bullet.fireY = y;
-		bullet.angle = _firstAngle - (_bulletCount*_offsetAngle);
-		bullet.rc = RectMakeCenter(bullet.x, bullet.y, bullet.img->getFrameWidth(), bullet.img->getFrameHeight());
-
+		tagCBullet* bullet = new tagCBullet;
+		bullet->img = new my::Image;
+		bullet->img->init("Resource/Images/Rocket/Missile.BMP", 0.0f, 0.0f, 416, 64, 13, 1, true, RGB(255, 0, 255));
+		bullet->type = ObservedType::ROCKET_MISSILE;
+		bullet->speed = 4.0f;
+		bullet->x = bullet->fireX = x;
+		bullet->y = bullet->fireY = y;
+		bullet->angle = _firstAngle - (_bulletCount*_offsetAngle);
+		bullet->rc = RectMakeCenter(bullet->x, bullet->y, bullet->img->getFrameWidth(), bullet->img->getFrameHeight());
+		bullet->fire = true;
+		bullet->init();
 		_vBullet.push_back(bullet);
+
 		_bulletCount++;
-		cout << "_vBullet.size : "<< _vBullet.size() << endl;
 	}
 	_bulletCount = 0;
 	
+}
+
+//==================================
+// ### BlackholeMissile ###
+//==================================
+HRESULT BlackholeMissile::init(int bulletMax, float range)
+{
+	AMissile::init(bulletMax, range);
+	return S_OK;
+}
+
+void BlackholeMissile::move(void)
+{
+	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end();++_viBullet)
+	{
+		(*_viBullet)->y -= (*_viBullet)->speed;
+		(*_viBullet)->rc = RectMakeCenter((*_viBullet)->x, (*_viBullet)->y,
+			(*_viBullet)->img->getFrameWidth(), (*_viBullet)->img->getFrameHeight());
+	}
+}
+
+void BlackholeMissile::fire(float x, float y)
+{
+	//최대 발사 갯수를 막는다.
+	if (_bulletMax <= _vBullet.size())return;
+
+	//메모리 블록 크기 만큼 
+	tagCBullet* bullet= new tagCBullet;
+	bullet->type = ObservedType::ROCKET_MISSILE;
+	bullet->img = new my::Image;
+	bullet->img->init("Resource/Images/Rocket/Missile.BMP", 0.0f, 0.0f, 416, 64, 13, 1, true, RGB(255, 0, 255));
+	bullet->speed = 4.0f;
+	bullet->x = bullet->fireX = x;
+	bullet->y = bullet->fireY = y;
+	bullet->rc = RectMakeCenter(bullet->x, bullet->y, bullet->img->getFrameWidth(), bullet->img->getFrameHeight());
+	bullet->fire = true;
+	bullet->init();
+
+	_vBullet.push_back(bullet);
+}
+
+//==================================
+// ### tagCBullet ###
+//==================================
+void tagCBullet::init(void)
+{
+	RECTOBSERVERMANAGER->registerObserved(this);
+}
+
+void tagCBullet::release(void)
+{
+	RECTOBSERVERMANAGER->removeObserved(this);
+}
+
+STObservedData tagCBullet::getRectUpdate()
+{
+	STObservedData temp;
+	temp.rc = &rc;
+	temp.typeKey = &type;
+	temp.isActive = &fire;
+	return temp;
+}
+
+void tagCBullet::collideObject()
+{
+	fire = false;
 }

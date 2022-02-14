@@ -117,3 +117,12 @@ inline RectF GPRectFMakeCenter(REAL width, REAL height)
 	return rc;
 
 }
+
+inline RECT CollisionAreaResizing(RECT &rcDest, int width, int height) 
+{
+	RECT rc = { rcDest.left + width / 2,
+				rcDest.top + height / 2,
+				rcDest.right - width / 2,
+				rcDest.bottom - height / 2 };
+	return rc;
+}

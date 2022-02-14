@@ -1,5 +1,6 @@
 #pragma once
 #include "GameNode.h"
+#include "IRectObserved.h"
 
 #define FLAME_COUNT		4.0f
 
@@ -14,8 +15,30 @@ struct tagBullet
 	float angle;
 	float speed;
 	bool fire;
-	//float flameTick;
 };
+
+
+class tagCBullet :public IRectObserved
+{
+public:
+	ObservedType type;
+	my::Image* img;
+	RECT rc;
+	int radius;
+	int count;
+	float x, y;
+	float fireX, fireY;
+	float angle;
+	float speed;
+	bool fire;
+
+	void init(void);
+	void release(void);
+	virtual STObservedData getRectUpdate();
+	virtual void collideObject();
+
+};
+
 
 /*
 실습 겸 과제 1. 로켓 무장 변경추가
@@ -75,16 +98,46 @@ public:
 	void draw(void);
 	void move(void);
 
+	vector<tagBullet> getBullet(void) { return _vBullet; }
+	void removeBullet(int arrNum);
+
 	MissileM1() {}
 	~MissileM1() {}
+};
+
+class Beam : public GameNode
+{
+private:
+	vector<tagBullet> _vBullet;
+	vector<tagBullet>::iterator _viBullet;
+
+	typedef vector<tagBullet>::iterator iterBullet;
+
+	float _range;
+	int _bulletMax;
+
+public:
+	HRESULT init(int bulletMax, float range);
+	void release(void);
+	void update(void);
+	void render(void);
+
+	void fire(float x, float y);
+	void draw(void);
+	void move(void);
+
+	vector<tagBullet> getBullet(void) { return _vBullet; }
+
+	Beam() {}
+	~Beam() {}
 };
 
 //추상 미사일
 class AMissile : public GameNode
 {
 protected:
-	vector<tagBullet> _vBullet;
-	vector<tagBullet>::iterator _viBullet;
+	vector<tagCBullet*> _vBullet;
+	vector<tagCBullet*>::iterator _viBullet;
 
 	float _range;
 	int _bulletMax;
@@ -99,6 +152,7 @@ public:
 	virtual void draw(void);
 	virtual void move(void);
 	virtual void isRange(void);
+	virtual void CheckFire(void);
 
 	AMissile() {}
 	virtual ~AMissile() {}
@@ -109,7 +163,7 @@ class CaseShotMissile : public AMissile
 private:
 	int _bulletCount;
 	float _firstAngle;
-	const float _offsetAngle = 0.1;
+	const float _offsetAngle = 0.1f;
 
 public:
 	virtual HRESULT init(int bulletMax, float range);
@@ -121,7 +175,7 @@ public:
 class BlackholeMissile : public AMissile 
 {
 private:
-
+	
 public:
 	virtual HRESULT init(int bulletMax, float range);
 	virtual void move(void);

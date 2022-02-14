@@ -1,8 +1,28 @@
 #pragma once
 
+
+//1.include "Animation.h"
+//2.class Animation;
+//잘써야한다.-> 판단 -> 어떤 상황에서 들어가는지 
+//참조해서 쓰겠다. 메모리가 다 들어가지 않기때문에 접근되지않는게 많다.
+/*
+클래스 전방선언(class forword Declaration)
+전방선언, 전처리문 # include
+1. is a 관계		: 제네시스는 차다.				-> #include
+2. has a 관계	: 제니시스는 바퀴를 가지고있다.	-> 전방선언
+
+-클래스 전방선언은 함수 전방선언과 비슷하면서도 다른점이 있다.
+-#include 전처리기를 많이 사용할 경우 전처리기 단계가 길어지게 된다.
+	ㄴ 컴파일 시간 증가
+
+-이를 해결하기 위해 전방 선언을 이용할 수도 있다.
+1. 클래스의 포인터/ 참조형식으로 이름만 참조할 경우
+2. 매개 변수나 리턴 타입을 위한 이름만 참조할 경우
+3. 메모리 절약
+*/
+class Animation;
+
 namespace my {
-
-
 
 class Image
 {
@@ -122,6 +142,8 @@ public:
 	void loopRender(HDC hdc, const LPRECT drawArea, int offsetX, int offsetY);
 	void loopAlphaRender(HDC hdc, const LPRECT drawArea, int offsetX, int offsetY, BYTE alpha);
 
+	void aniRender(HDC hdc, int destX, int destY, Animation* ani);
+
 	//================
 	//#인라인 함수#
 	//================
@@ -182,7 +204,6 @@ public:
 		}
 	}
 
-
 	//프레임 Y
 	inline int getFrameY(void) { return _imageInfo->currentFrameY; }
 	inline void setFrameY(int frameY) 
@@ -200,7 +221,6 @@ public:
 	//최대 프레임 xy갯수
 	inline int getMaxFrameX(void) { return _imageInfo->maxFrameX; }
 	inline int getMaxFrameY(void) { return _imageInfo->maxFrameY; }
-
 
 
 	Image();

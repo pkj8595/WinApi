@@ -8,8 +8,6 @@ class GameNode
 private:
 	HDC _hdc;
 	bool _managerInit;
-	
-
 
 public :
 	GameNode() {}

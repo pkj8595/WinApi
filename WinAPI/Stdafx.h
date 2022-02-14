@@ -28,8 +28,10 @@ PreCompiled Header (PCH)
 #define WIN32_LEAN_AND_MEAN             
 #include <windows.h>
 
-//!디버깅용 콘솔창
+//! 라이브러리
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
+#pragma comment(lib,"Winmm.lib")//win 멀티 미디어 (그래픽카드를 불러올때도 사용)
+#pragma comment (lib, "msimg32.lib")//알파블렌드를 사용하기위한 라이브러리 추가
 
 //===================================
 //! C 런타임 헤더 파일
@@ -38,6 +40,14 @@ PreCompiled Header (PCH)
 #include <stdlib.h>
 #include <time.h>
 #include <tchar.h>
+//윈도우 내장 재생 라이브러리
+//PlaySound()를 사용하기위해
+#include <mmsystem.h>
+
+//미디어 컨트롤 인터페이스 api
+//mciSendString()를 사용하기위해 사용
+//mci : media Control Interface
+#include <mciapi.h>
 
 
 //===================================
@@ -80,6 +90,11 @@ using namespace Gdiplus;
 #include <map>
 #include <cassert>
 #include <typeinfo>
+#include <algorithm> //
+
+//void 포인터를 변수처럼 던지는 라이브러리
+//bind 특정 인자와 특정 함수를 엮어줄 수 있다...?
+#include <functional> 
 
 using namespace std;
 //using namespace mycustom;
@@ -93,7 +108,9 @@ using namespace std;
 #include "ImageManager.h"
 #include "FontManager.h"
 #include "TempSoundManager.h"
+#include "TimeManager.h"
 #include "Utils.h"
+#include "CRectObserverManager.h"
 
 using namespace MY_UTIL;
 //===================================
@@ -109,6 +126,8 @@ using namespace MY_UTIL;
 #define IMAGEMANAGER ImageManager::getSingleton()
 #define FONTMANAGER	FontManager::getSingleton()
 #define TEMPSOUNDMANAGER TempSoundManager::getSingleton()
+#define TIMEMANAGER TimeManager::getSingleton()
+#define RECTOBSERVERMANAGER CRectObserverManager::getSingleton()
 
 
 //===================================
@@ -135,8 +154,8 @@ using namespace MY_UTIL;
 
 #define WINSTART_X		350
 #define WINSTART_Y		0
-#define WINSIZE_X		1000
-#define WINSIZE_Y		850
+#define WINSIZE_X		600
+#define WINSIZE_Y		1000
 //#define WINSIZE_Y		700
 //WS SYSMENU >> 오른쪽 상단 컨트롤 박스 
 //WINSTYLE WS_CAPTION ? 

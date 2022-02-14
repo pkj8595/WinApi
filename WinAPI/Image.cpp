@@ -1,8 +1,6 @@
 #include "Stdafx.h"
 #include "Image.h"
-
-//알파블렌드를 사용하기위한 라이브러리 추가
-#pragma comment (lib, "msimg32.lib")
+#include "Animation.h"
 
 
 namespace my {
@@ -329,7 +327,8 @@ namespace my {
 	{
 
 		if (_isTrans)
-		{	//그려지는 순서가 느리다.
+		{	
+			//그려지는 순서가 느리다.
 			//이미지 복사 GDI translate >> 복사가 됨 >> 해제 
 			//메모리에 계속 상주하기 때문에 병목현상이 일어날수 있겠다.
 			//폰노이만 아키텍처 (병목현상이 일어....나)
@@ -694,5 +693,9 @@ namespace my {
 	void Image::loopAlphaRender(HDC hdc, const LPRECT drawArea, int offsetX, int offsetY, BYTE alpha)
 	{
 
+	}
+	void Image::aniRender(HDC hdc, int destX, int destY, Animation* ani)
+	{
+		render(hdc, destX, destY, ani->getFramePos().x, ani->getFramePos().y, ani->getFrameWidth(), ani->getFrameHeight());
 	}
 }

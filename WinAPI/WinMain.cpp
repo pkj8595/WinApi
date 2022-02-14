@@ -79,13 +79,11 @@ int APIENTRY WinMain( HINSTANCE hInstance,
 		return 0;
 	}
 
-
 	/*
 		winmain의 역할
 		1. 윈도우 창을 세팅 후 화면에 띄우기
 			ㄴ 세팅 (4가지)를 모두 처리해야 화면에 창이 뜬다.
 		2. 메세지 루프 
-	
 	*/
 	//EX가 붙으면 확장된 것
 
@@ -192,31 +190,38 @@ int APIENTRY WinMain( HINSTANCE hInstance,
 		ㄴ단, 메세지가 큐가 비어있을 경우(발생한 메세지 x) 메세지가 들어올때까지 대기한다.
 
 		PeekMessage : 메세지가 없더라도 반환되는 함수(게임 최적화)
-
 	*/
 	//2.
 	//! 메시지 루프 :
 
 
-	/*
+	
 	while (true) 
 	{
-		핸들에 NULL을 넣는 이유 
-		넣으면 우리 프로그램이 이 while문안에 종속된다.
+		/*핸들에 NULL을 넣는 이유 
+		넣으면 우리 프로그램이 이 while문안에 종속된다.*/
 		if (PeekMessage(&message, NULL, 0, 0, PM_REMOVE)) 
 		{
 			if (message.message == WM_QUIT) break;
 			TranslateMessage(&message);
 			DispatchMessage(&message);
 		}
-	}
-	*/
+		else 
+		{
+			TIMEMANAGER->update(60.0f);
+			_mg->update();
+			_mg->render();
+		}
 
+	}
+	/*
+	
 	while (GetMessage(&message, 0, 0, 0))
 	{
 		TranslateMessage(&message);
 		DispatchMessage(&message);
 	}
+	*/
 	/*
 		update처럼 계속 메세지를 수신 받는다.
 		TranslateMessage	: 키보드의 입력처리를 담당
