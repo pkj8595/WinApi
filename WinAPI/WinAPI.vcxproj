@@ -161,13 +161,20 @@
     <ClCompile Include="EffectManager.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
+    <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="Flame.cpp" />
     <ClCompile Include="HpImgBar.cpp" />
     <ClCompile Include="MapPatternController.cpp" />
     <ClCompile Include="mGpImage.cpp" />
     <ClCompile Include="Minion.cpp" />
+    <ClCompile Include="PixelCollision.cpp" />
+    <ClCompile Include="PixelScene.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="Rocket.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SecondScene_0217.cpp" />
+    <ClCompile Include="ShootingEffect.cpp" />
+    <ClCompile Include="ShootingScene.cpp" />
     <ClCompile Include="SimpleTranslate.cpp" />
     <ClCompile Include="CShapePlayer.cpp" />
     <ClCompile Include="FontManager.cpp" />
@@ -237,12 +244,15 @@
     </ClCompile>
     <ClCompile Include="SecondScene.cpp" />
     <ClCompile Include="StartScene.cpp" />
+    <ClCompile Include="StartScene_0217.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="StickMan.cpp" />
     <ClCompile Include="TempSoundManager.cpp" />
     <ClCompile Include="TempSoundTest.cpp" />
+    <ClCompile Include="TextDataManager.cpp" />
+    <ClCompile Include="ThirdScene_0217.cpp" />
     <ClCompile Include="Tilemap.cpp" />
     <ClCompile Include="TileMapObject.cpp" />
     <ClCompile Include="TimeManager.cpp" />
@@ -269,6 +279,7 @@
     <ClInclude Include="EffectManager.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyManager.h" />
+    <ClInclude Include="FileIO.h" />
     <ClInclude Include="Flame.h" />
     <ClInclude Include="HpImgBar.h" />
     <ClInclude Include="IRectObserved.h" />
@@ -276,8 +287,14 @@
     <ClInclude Include="MapPatternController.h" />
     <ClInclude Include="mGpImage.h" />
     <ClInclude Include="Minion.h" />
+    <ClInclude Include="PixelCollision.h" />
+    <ClInclude Include="PixelScene.h" />
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="Rocket.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SecondScene_0217.h" />
+    <ClInclude Include="ShootingEffect.h" />
+    <ClInclude Include="ShootingScene.h" />
     <ClInclude Include="SimpleTranslate.h" />
     <ClInclude Include="CShapePlayer.h" />
     <ClInclude Include="FontManager.h" />
@@ -355,12 +372,15 @@
     <ClInclude Include="SecondScene.h" />
     <ClInclude Include="SingletonBase.h" />
     <ClInclude Include="StartScene.h" />
+    <ClInclude Include="StartScene_0217.h" />
     <ClInclude Include="Stdafx.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="StickMan.h" />
     <ClInclude Include="TempSoundManager.h" />
     <ClInclude Include="TempSoundTest.h" />
+    <ClInclude Include="TextDataManager.h" />
+    <ClInclude Include="ThirdScene_0217.h" />
     <ClInclude Include="Tilemap.h" />
     <ClInclude Include="TileMapObject.h" />
     <ClInclude Include="TimeManager.h" />

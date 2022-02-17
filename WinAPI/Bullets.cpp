@@ -1,6 +1,79 @@
 #include "Stdafx.h"
 #include "Bullets.h"
 
+//=============================================
+// ### Bullet ###
+//=============================================
+
+HRESULT Bullet::init(const char * imageName, int bulletMax, float range)
+{
+	_imageName = imageName;
+	_range = range;
+	_bulletMax = bulletMax;
+	return S_OK;
+}
+
+void Bullet::release(void)
+{
+	_vBullet.clear();
+}
+
+void Bullet::update(void)
+{
+	move();
+
+}
+
+void Bullet::render(void)
+{
+	draw();
+}
+
+void Bullet::fire(float x, float y, float angle, float speed)
+{
+	//최대 발사갯수 막는다.
+	if (_bulletMax <= _vBullet.size()) return;
+
+	tagBullet bullet;
+	ZeroMemory(&bullet, sizeof(tagBullet));
+	bullet.img = IMAGEMANAGER->findImage(_imageName);
+	bullet.speed = speed;
+	bullet.angle = angle;
+	bullet.x = bullet.fireX = x;
+	bullet.y = bullet.fireY = y;
+	bullet.rc = RectMakeCenter(bullet.x, bullet.y, bullet.img->getWidth(), bullet.img->getHeight());
+
+	_vBullet.push_back(bullet);
+}
+
+void Bullet::draw(void)
+{
+	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end(); ++_viBullet) 
+	{
+		_viBullet->img->render(getMemDC(), _viBullet->rc.left, _viBullet->rc.top);
+	}
+}
+
+void Bullet::move(void)
+{
+	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end();) 
+	{
+		_viBullet->x += cosf(_viBullet->angle)*_viBullet->speed;
+		_viBullet->y += -sinf(_viBullet->angle)*_viBullet->speed;
+		_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y, _viBullet->img->getWidth(), _viBullet->img->getHeight());
+		if (_range < getDistance(_viBullet->fireX, _viBullet->fireY, _viBullet->x, _viBullet->y))
+		{
+			_viBullet = _vBullet.erase(_viBullet);
+		}
+		else ++_viBullet;
+
+	}
+}
+
+void Bullet::removeBullet(int arrNum)
+{
+	_vBullet.erase(_vBullet.begin() + arrNum);
+}
 
 //=============================================
 // ### Missile ###
@@ -549,3 +622,4 @@ void tagCBullet::collideObject()
 {
 	fire = false;
 }
+

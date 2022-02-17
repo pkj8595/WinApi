@@ -1,8 +1,9 @@
 #pragma once
 #include "GameNode.h"
 #include "Enemy.h"
+#include "Bullets.h"
 
-
+class Rocket;
 class EnemyManager: public GameNode
 {
 private:
@@ -15,6 +16,9 @@ private:
 	vEnemy _vMinion;
 	viEnemy _viMinion;
 
+	Bullet* _bullet;
+	Rocket* _rocket;
+
 public:
 	HRESULT init(void);
 	void release(void);
@@ -26,7 +30,11 @@ public:
 	vector<Enemy*> getMinions(void) { return _vMinion; }
 	void checkActive(void);
 
+	void minionBulletFire(void);
+	void collision(void);
 
+	Bullet* getBullet(void) { return _bullet; }
+	void setRoketMemoryAddress(Rocket* rk) { _rocket = rk; }
 
 	EnemyManager();
 	~EnemyManager();

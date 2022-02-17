@@ -25,7 +25,9 @@ PreCompiled Header (PCH)
 //===================================
 //! Windows 헤더 파일
 //===================================
-#define WIN32_LEAN_AND_MEAN             
+#define WIN32_LEAN_AND_MEAN          
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <windows.h>
 
 //! 라이브러리
@@ -111,6 +113,9 @@ using namespace std;
 #include "TimeManager.h"
 #include "Utils.h"
 #include "CRectObserverManager.h"
+#include "TextDataManager.h"
+#include "SceneManager.h"
+
 
 using namespace MY_UTIL;
 //===================================
@@ -127,7 +132,9 @@ using namespace MY_UTIL;
 #define FONTMANAGER	FontManager::getSingleton()
 #define TEMPSOUNDMANAGER TempSoundManager::getSingleton()
 #define TIMEMANAGER TimeManager::getSingleton()
+#define TEXTDATAMANAGER TextDataManager::getSingleton()
 #define RECTOBSERVERMANAGER CRectObserverManager::getSingleton()
+#define SCENEMANAGER SceneManager::getSingleton()
 
 
 //===================================
@@ -154,7 +161,7 @@ using namespace MY_UTIL;
 
 #define WINSTART_X		350
 #define WINSTART_Y		0
-#define WINSIZE_X		600
+#define WINSIZE_X		1000
 #define WINSIZE_Y		1000
 //#define WINSIZE_Y		700
 //WS SYSMENU >> 오른쪽 상단 컨트롤 박스 
@@ -168,7 +175,6 @@ using namespace MY_UTIL;
 //===================================
 #define CENTER_X	WINSIZE_X/2
 #define CENTER_Y	WINSIZE_Y/2
-
 
 //===================================
 //# 매크로 함수 # (클래스에서 동적 할당된 부분 해제)

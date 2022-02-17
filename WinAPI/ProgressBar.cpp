@@ -6,8 +6,8 @@ HRESULT ProgressBar::init(int x, int y, int width, int height)
 	_x = x;
 	_y = y;
 	_rc = RectMakeCenter(_x, _y, width, height);
-	_progressBarUp = IMAGEMANAGER->addImage("BarUp", "Resource/Images/Rocket/up.bmp", 0, 0, width, height, true, RGB(255, 0, 255));
-	_progressBarDown = IMAGEMANAGER->addImage("BarDown", "Resource/Images/Rocket/down.bmp", 0, 0, width, height, true, RGB(255, 0, 255));
+	_progressBarUp = IMAGEMANAGER->addImage("BarUp", "Resource/Images/Object/up.bmp", 0, 0, width, height, true, RGB(255, 0, 255));
+	_progressBarDown = IMAGEMANAGER->addImage("BarDown", "Resource/Images/Object/down.bmp", 0, 0, width, height, true, RGB(255, 0, 255));
 
 	_width = _progressBarUp->getWidth();
 

@@ -29,7 +29,9 @@ HRESULT GameNode::init(bool managerInit)
 		IMAGEMANAGER->init();
 		TEMPSOUNDMANAGER->init();
 		TIMEMANAGER->init();
+		TEXTDATAMANAGER->init();
 		RECTOBSERVERMANAGER->init();
+		SCENEMANAGER->init();
 
 	}
 
@@ -42,17 +44,27 @@ void GameNode::release(void)
 	{
 		//Å¸ÀÌ¸Ó ÇØÁ¦ 
 		KillTimer(_hWnd, 1);
-		//Å°¸Å´ÏÀú ½Ì±ÛÅæ ÇØÁ¦
 		KEYMANAGER->releaseSingleton();
-		//·£´ýÆã¼Ç ½Ì±ÛÅæ ÇØÁ¦
+
 		RND->releaseSingleton();
+
 		IMAGEMANAGER->release();
 		IMAGEMANAGER->releaseSingleton();
+
 		FONTMANAGER->releaseSingleton();
+
 		TEMPSOUNDMANAGER->releaseSingleton();
+
+		TIMEMANAGER->release();
 		TIMEMANAGER->releaseSingleton();
 
+		TEXTDATAMANAGER->release();
+		TEXTDATAMANAGER->releaseSingleton();
+
 		RECTOBSERVERMANAGER->releaseSingleton();
+
+		SCENEMANAGER->release();
+
 	}
 
 

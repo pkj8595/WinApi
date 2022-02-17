@@ -22,6 +22,9 @@ protected:
 	float _rndTimeCount;
 	float _worldTimeCount;
 
+	float _bulletFireCount;
+	float _rndFireCount;
+
 	ObservedType _type;
 	bool _isActive;
 public:
@@ -34,6 +37,8 @@ public:
 	virtual void move(void);
 	virtual void draw(void);
 	virtual void animation(void);
+
+	bool bulletCountFire(void);
 
 	RECT getRect(void) { return _rc; }
 	bool getIsActive(void) { return _isActive; }

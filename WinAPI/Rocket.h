@@ -6,6 +6,8 @@
 
 #define ROCKET_SPEED	3.0f
 
+class EnemyManager;
+
 enum EWeapon 
 {
 	MISSILE,BEAM
@@ -22,6 +24,8 @@ private:
 	MissileM1* _missileM1;
 	Beam* _beam;
 	EWeapon _setWeapon;
+	EnemyManager* _em;
+
 
 	RECT _rc;
 	float _x, _y;
@@ -42,9 +46,14 @@ public :
 	void update(void);
 	void render(void);
 
+	void coliision(void);
+	void setEnemyManagerMemoryAddress(EnemyManager* em) { _em = em; }
+
 	void removeMissile(int arrNum);
 	MissileM1* getMissile(void) { return _missileM1; }
 	Beam* getBeam(void) { return _beam; }
+
+	POINT getPosition(void) { return PointMake((int)_x, (int)_y); }
 	RECT getRect(void) { return _rc; }
 
 	//test

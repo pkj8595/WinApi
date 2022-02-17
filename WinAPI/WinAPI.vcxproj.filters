@@ -94,6 +94,12 @@
     <Filter Include="API FrameWork\Animation">
       <UniqueIdentifier>{0bc4185d-54c2-4c9e-914d-b1e332e4f589}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API FrameWork\ExampleClasses\Scene\pixel">
+      <UniqueIdentifier>{5834f62d-e679-4e67-bdb0-ec7e7b91845c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameClass\EffectManager">
+      <UniqueIdentifier>{c11dc7e6-0bee-4030-9870-f97ae33bb98d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -246,16 +252,12 @@
     <ClCompile Include="Timer.cpp">
       <Filter>API FrameWork\Manager\TimeManager</Filter>
     </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>MainGame</Filter>
-    </ClCompile>
     <ClCompile Include="HpImgBar.cpp">
       <Filter>API FrameWork\Utility\ToolClass</Filter>
     </ClCompile>
     <ClCompile Include="ProgressBar.cpp">
       <Filter>API FrameWork\Utility\ToolClass</Filter>
     </ClCompile>
-    <ClCompile Include="EffectManager.cpp" />
     <ClCompile Include="CRectObserverManager.cpp">
       <Filter>API FrameWork\ExampleClasses\ShootingGame\Observer</Filter>
     </ClCompile>
@@ -265,13 +267,45 @@
     <ClCompile Include="Rocket.cpp">
       <Filter>API FrameWork\ExampleClasses\ShootingGame\Rocket</Filter>
     </ClCompile>
-    <ClCompile Include="CEffect.cpp" />
     <ClCompile Include="Animation.cpp">
       <Filter>API FrameWork\Animation</Filter>
     </ClCompile>
     <ClCompile Include="AniTestScene.cpp">
       <Filter>API FrameWork\ExampleClasses\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="TextDataManager.cpp">
+      <Filter>API FrameWork\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootingEffect.cpp">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootingScene.cpp">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame</Filter>
+    </ClCompile>
+    <ClCompile Include="PixelCollision.cpp">
+      <Filter>API FrameWork\ExampleClasses\Scene\pixel</Filter>
+    </ClCompile>
+    <ClCompile Include="PixelScene.cpp">
+      <Filter>API FrameWork\ExampleClasses\Scene\pixel</Filter>
+    </ClCompile>
+    <ClCompile Include="CEffect.cpp">
+      <Filter>GameClass\EffectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectManager.cpp">
+      <Filter>GameClass\EffectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>API FrameWork\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIO.cpp">
+      <Filter>API FrameWork\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame</Filter>
+    </ClCompile>
+    <ClCompile Include="StartScene_0217.cpp" />
+    <ClCompile Include="SecondScene_0217.cpp" />
+    <ClCompile Include="ThirdScene_0217.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonMacroFunction.h">
@@ -442,7 +476,6 @@
     <ClInclude Include="ProgressBar.h">
       <Filter>API FrameWork\Utility\ToolClass</Filter>
     </ClInclude>
-    <ClInclude Include="EffectManager.h" />
     <ClInclude Include="CRectObserverManager.h">
       <Filter>API FrameWork\ExampleClasses\ShootingGame\Observer</Filter>
     </ClInclude>
@@ -458,13 +491,42 @@
     <ClInclude Include="Rocket.h">
       <Filter>API FrameWork\ExampleClasses\ShootingGame\Rocket</Filter>
     </ClInclude>
-    <ClInclude Include="CEffect.h" />
     <ClInclude Include="Animation.h">
       <Filter>API FrameWork\Animation</Filter>
     </ClInclude>
     <ClInclude Include="AniTestScene.h">
       <Filter>API FrameWork\ExampleClasses\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="TextDataManager.h">
+      <Filter>API FrameWork\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ShootingScene.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame</Filter>
+    </ClInclude>
+    <ClInclude Include="ShootingEffect.h">
+      <Filter>API FrameWork\ExampleClasses\ShootingGame</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelScene.h">
+      <Filter>API FrameWork\ExampleClasses\Scene\pixel</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelCollision.h">
+      <Filter>API FrameWork\ExampleClasses\Scene\pixel</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectManager.h">
+      <Filter>GameClass\EffectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CEffect.h">
+      <Filter>GameClass\EffectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>API FrameWork\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="FileIO.h">
+      <Filter>API FrameWork\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="StartScene_0217.h" />
+    <ClInclude Include="SecondScene_0217.h" />
+    <ClInclude Include="ThirdScene_0217.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\..\..\Documents\삼각함수.txt">

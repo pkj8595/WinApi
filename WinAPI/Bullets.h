@@ -132,6 +132,35 @@ public:
 	~Beam() {}
 };
 
+//공용총알
+class Bullet : public GameNode
+{
+private:
+	vector<tagBullet> _vBullet;
+	vector<tagBullet>::iterator _viBullet;
+
+	const char* _imageName;
+	int _bulletMax;
+	float _range;
+
+public:
+	HRESULT init(const char*imageName,int bulletMax, float range);
+	void release(void);
+	void update(void);
+	void render(void);
+
+	void fire(float x, float y, float angle, float speed);
+	void draw(void);
+	void move(void);
+
+	void removeBullet(int arrNum);
+	vector<tagBullet> getBullet(void) {return _vBullet;}
+
+	Bullet() {}
+	virtual ~Bullet() {}
+};
+
+
 //추상 미사일
 class AMissile : public GameNode
 {

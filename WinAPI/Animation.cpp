@@ -82,7 +82,6 @@ void Animation::setDefPlayFrame(bool reverse, bool loop)
 			}
 		}
 	}
-	//편도
 	else 
 	{
 		for (int i = 0; i < _frameNum; i++)
@@ -100,12 +99,10 @@ void Animation::setPlayFrame(int* playArr, int arrLen, bool loop)
 
 	if (_loop)
 	{
-		//갈때 프레임
 		for (int i = 0; i < arrLen; i++)
 		{
 			_playList.push_back(playArr[i]);
 		}
-		//올때 프레임
 		for (int i = arrLen - 2; i > 0; i--)
 		{
 			_playList.push_back(playArr[i]);
@@ -113,12 +110,10 @@ void Animation::setPlayFrame(int* playArr, int arrLen, bool loop)
 	}
 	else
 	{
-		//갈때 프레임
 		for (int i = 0; i < arrLen; i++)
 		{
 			_playList.push_back(playArr[i]);
 		}
-		//올때 프레임
 		for (int i = arrLen - 2; i >= 0; i--)
 		{
 			_playList.push_back(playArr[i]);

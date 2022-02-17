@@ -4,17 +4,13 @@
 class StartScene : public GameNode
 {
 private:
-	float _alpha;
-	float _bgAlpha;
-	bool _isAlphaIncrece;
-
+	char _text[64];
 
 public:
-
 	HRESULT init(void);
 	void release(void);
 	void update(void);
-	void render(HDC hdc);
+	void render();
 
 	StartScene() {}
 	~StartScene() {}

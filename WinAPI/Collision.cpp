@@ -1,8 +1,8 @@
 #include "Stdafx.h"
-#include "MainGame.h"
+#include "ShootingScene.h"
 
 
-void MainGame::collision(void)
+void ShootingScene::collision(void)
 {
 	for (int i = 0; i<_rocket->getMissile()->getBullet().size(); i++)
 	{
@@ -13,6 +13,7 @@ void MainGame::collision(void)
 				&_rocket->getMissile()->getBullet()[i].rc,
 				&CollisionAreaResizing(_em->getMinions()[j]->getRect(),30,30)))
 			{
+				_missileEffect->show(rc);
 				_rocket->removeMissile(i);
 				_em->removeMinion(j);
 				break;
@@ -32,11 +33,25 @@ void MainGame::collision(void)
 				&_rocket->getBeam()->getBullet()[i].rc,
 				&CollisionAreaResizing(_em->getMinions()[j]->getRect(),40,30)))
 			{
+				_beamEffect->show(rc);
 				_em->removeMinion(j);
 				break;
 			}
 
 		}
 
+	}
+
+	for (int i = 0; i < _em->getBullet()->getBullet().size(); i++) 
+	{
+		RECT rc;
+		if (IntersectRect(&rc,
+			&_em->getBullet()->getBullet()[i].rc,
+			&_rocket->getRect())) 
+		{
+
+			_em->getBullet()->removeBullet(i);
+			_rocket->hitDamage(2.0f);
+		}
 	}
 }

@@ -16,7 +16,7 @@ HRESULT HpImgBar::init(float* x, float* y, int* hp, int offsetX, int offsetY)
 	_maxHp = *hp;
 	_offsetX = offsetX;
 	_offsetY = offsetY;
-	_rc = RectMakeCenter((int)_x, (int)_y, _baseImage->getWidth(), _baseImage->getHeight());
+	_rc = RectMakeCenter((int)*_x, (int)*_y, _baseImage->getWidth(), _baseImage->getHeight());
 
 	return S_OK;
 }
@@ -29,7 +29,7 @@ void HpImgBar::release(void)
 
 void HpImgBar::update(void)
 {
-	_rc = RectMakeCenter(*_x + _offsetX, *_y + _offsetY, _baseImage->getWidth(), _baseImage->getHeight());
+	_rc = RectMakeCenter((int)*_x + _offsetX, (int)*_y + _offsetY, _baseImage->getWidth(), _baseImage->getHeight());
 }
 
 void HpImgBar::render(HDC hdc)
@@ -38,6 +38,6 @@ void HpImgBar::render(HDC hdc)
 		(static_cast<float>(*_hp) / _maxHp);
 
 	_baseImage->render(hdc, _rc.left, _rc.top,0,0, _baseImage->getWidth(),_baseImage->getHeight());
-	_valImage->render(hdc, _rc.left, _rc.top,0,0, static_cast<float>(computeWidth), _valImage->getHeight());
+	_valImage->render(hdc, _rc.left, _rc.top,0,0, static_cast<int>(computeWidth), _valImage->getHeight());
 
 }

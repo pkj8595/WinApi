@@ -1,5 +1,6 @@
 #include "Stdafx.h"
 #include "Rocket.h"
+#include "EnemyManager.h"
 
 HRESULT Rocket::init(void)
 {
@@ -76,6 +77,30 @@ void Rocket::update(void)
 		_setWeapon = BEAM;
 	}
 
+	if (KEYMANAGER->isOnceKeyDown(VK_F8))
+	{
+		char temp[32];
+		vector<string> data;
+
+		//itoa : int to ascii 아스키 
+ 		//정수형을 문자열로 변환
+		data.push_back(_itoa((int)_x,temp,10));
+		data.push_back(_itoa((int)_y,temp,10));
+		data.push_back(_itoa((int)_currentHp,temp,10));
+		data.push_back(_itoa((int)_maxHp,temp,10));
+
+		TEXTDATAMANAGER->save("플레이어 상태.txt", data);
+	}
+	if (KEYMANAGER->isOnceKeyDown(VK_F9))
+	{
+		vector<string> vData = TEXTDATAMANAGER->load("플레이어 상태.txt");
+
+		//atoi : ascii to int 아스키 
+		_x = atoi(vData[0].c_str());
+		_y = atoi(vData[1].c_str());
+		_currentHp = atoi(vData[2].c_str());
+		_maxHp = atoi(vData[3].c_str());
+	}
 	
 
 	switch (_setWeapon)
@@ -122,6 +147,8 @@ void Rocket::update(void)
 	_hpBar->setY(_y -10- (_rc.bottom - _rc.top) / 2);
 	_hpBar->update();
 
+	//coliision();
+
 	if(_aMissile != nullptr) _aMissile->update();
 
 }
@@ -135,6 +162,27 @@ void Rocket::render(void)
 
 	_hpBar->render();
 	if (_aMissile != nullptr) _aMissile->render();
+}
+
+void Rocket::coliision(void)
+{
+	for (int i = 0; i < _missileM1->getBullet().size(); i++)
+	{
+		for (int j = 0; j < _em->getMinions().size(); j++)
+		{
+			RECT rc;
+			if (IntersectRect(&rc,
+				&_missileM1->getBullet()[i].rc,
+				&CollisionAreaResizing(_em->getMinions()[j]->getRect(), 30, 30)))
+			{
+				removeMissile(i);
+				_em->removeMinion(j);
+				break;
+			}
+		}
+	}
+
+
 }
 
 void Rocket::removeMissile(int arrNum)
